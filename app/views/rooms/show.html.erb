@@ -1,0 +1,13 @@
+<table class="table">
+<% if @messages.present? %>
+  <% @messages.each do |m| %>
+    <tr><%= m.content %></tr>
+  <% end %>
+<% end %>
+</table>
+
+<%= form_for @message do |f| %>
+  <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <%= f.submit "投稿",class: 'form-submit'%>
+<% end %>
