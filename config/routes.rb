@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
   
-  resources :messages, only: [:create]
-  resources :rooms, only: [:create,:show]
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 end
